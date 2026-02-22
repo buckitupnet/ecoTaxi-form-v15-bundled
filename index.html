@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <title>Order Eco-Taxi - V15 Testing</title>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+     <script type="module" crossorigin src="./assets/index-Cq5N-wd8.js"></script>
+     <link rel="modulepreload" crossorigin href="./assets/many-CvjudpRv.js">
+     <link rel="stylesheet" crossorigin href="./assets/index-Dh4SYVof.css">
+   </head>
+   <body class="body p-3">
+      <div id="form" class="mx-auto grid max-w-[800px] rounded-xl bg-white p-5 md:p-10">
+         <!-- Language & Login -->
+         <div class="mb-4 flex items-center gap-2">
+            <select id="languageSelect" class="appearance-none">
+               <option value="en">EN</option>
+               <option value="ka">GE</option>
+            </select>
+            <button
+               id="popupButtonLogin"
+               class="flex items-center gap-1 gap-x-2 rounded-md border border-transparent bg-blue-600 px-3 py-1.5 text-center font-medium text-white hover:bg-blue-700 focus:bg-blue-700 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+               type="button">
+               <span data-lang="button.login">Login</span>
+            </button>
+            <button
+               id="popupButtonLogout"
+               class="hidden items-center gap-1 gap-x-2 rounded-md border border-transparent bg-blue-600 px-3 py-1.5 text-center font-medium text-white hover:bg-blue-700 focus:bg-blue-700 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+               type="button">
+               <span data-lang="button.logout">Logout</span>
+            </button>
+         </div>
+
+         <!-- Simplified Form -->
+         <form id="form" class="grid">
+            <h1 class="mb-2 text-center text-2xl font-medium text-primary sm:text-3xl">
+               🚖 Eco-Taxi File Upload Test (V15)
+            </h1>
+            <p class="mb-5 text-center text-red-600 font-bold">Testing Mode - Simplified Form</p>
+            
+            <!-- Version Badge -->
+            <div class="mb-5 bg-blue-50 border border-blue-200 rounded-lg p-3 text-sm">
+               <div class="font-bold text-blue-900">Form v15 - Original Stack</div>
+               <div class="text-blue-700">Build: Vite + npm</div>
+               <div class="text-blue-600">Status: Testing uploadKey mutation</div>
+            </div>
+
+            <!-- Hidden fields for validation -->
+            <input type="hidden" name="name" value="Test User V15" />
+            <input type="hidden" name="check-1" value="on" />
+            <input type="hidden" name="email" value="test-v15@eco-taxi.one" />
+            <input type="hidden" name="phone" value="+995555000000" />
+            <input type="hidden" name="address" value="Test Address V15" />
+            <input type="hidden" name="area" value="Vake" />
+            <input type="hidden" name="tariff" value="25 GEL - Basic Tariff Central" />
+            <input type="hidden" name="payment" value="1" />
+            <input type="hidden" name="quantity" value="Test quantity" />
+            <input type="hidden" name="language" value="English" />
+            <input type="hidden" name="read" value="on" />
+            <input type="hidden" name="link" value="" />
+            <input type="hidden" name="chat" value="" />
+            <input type="hidden" name="countryCode" value="GE" />
+
+            <!-- File Upload (Main Feature) -->
+            <div class="mb-6 border-2 border-dashed border-blue-300 rounded-lg p-6 bg-blue-50">
+               <h2 class="mb-3 text-xl font-bold text-blue-900">
+                  📎 Upload Files
+               </h2>
+               <input
+                  id="fileInput"
+                  class="block min-h-12 w-full rounded-lg border-2 border-blue-300 bg-white text-sm shadow-sm file:me-4 file:min-h-12 file:border-0 file:bg-blue-600 file:text-white file:px-6 file:py-3 file:font-semibold hover:file:bg-blue-700 focus:z-10 focus:border-blue-600 focus:ring-2 focus:ring-blue-600"
+                  type="file"
+                  name="files"
+                  multiple
+                  accept="image/*" />
+               <p class="mt-3 text-sm text-blue-700">
+                  ✨ Select one or more images to test file upload to eco-taxi.one
+               </p>
+               <div id="filePreview" class="mt-3"></div>
+            </div>
+
+            <!-- Comment (Optional) -->
+            <div class="mb-6">
+               <h2 class="mb-2 text-lg font-semibold">
+                  💬 Comments (Optional)
+               </h2>
+               <textarea
+                  class="ease w-full resize-none rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm text-slate-700 transition duration-300 placeholder:text-slate-400 hover:border-gray-400 focus:border-blue-600 focus:shadow focus:shadow-blue-300 focus:outline-none"
+                  rows="4"
+                  name="comment"
+                  placeholder="Enter any comments or special instructions..."></textarea>
+            </div>
+
+            <p id="error" class="mb-2 hidden rounded-md bg-red-100 p-2 text-center text-red-500"></p>
+            
+            <!-- Submit Button -->
+            <button
+               id="sendBtn"
+               class="gap-x-2 rounded-md border border-transparent bg-blue-600 px-4 py-3 text-center text-lg font-semibold text-white hover:bg-blue-700 focus:bg-blue-700 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+               type="submit">
+               🚀 Test Upload
+            </button>
+         </form>
+      </div>
+
+      <!-- Success Modal -->
+      <div id="modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+         <div class="bg-white rounded-lg p-8 max-w-md mx-4">
+            <h2 class="text-2xl font-bold text-green-600 mb-4">✅ Test Complete!</h2>
+            <p class="text-gray-700 mb-6">Files uploaded successfully to eco-taxi.one</p>
+            <button
+               onclick="document.getElementById('modal').classList.add('hidden')"
+               class="w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
+               Close
+            </button>
+         </div>
+      </div>
+
+      <script src="./js/walc-external-bundle.js"></script>
+   </body>
+</html>
